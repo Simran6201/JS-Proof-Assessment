@@ -1,0 +1,51 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// create a variable to hold your NFT's
+const NFTstore = []
+
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+function mintNFT (_name, _eyeColor, _height, _occupation) {
+    const NFTobj = {
+        "name": _name, 
+        "eyeColor": _eyeColor,
+        "height": _height,
+        "occupation": _occupation
+    }
+    NFTstore.push(NFTobj);
+    console.log(_name + " is Minted");
+}
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listNFTs () {
+ for(let i = 0; i < NFTstore.length; i++){
+    console.log("\nID: \t\t\t" + (i + 1));
+    console.log("Name: \t\t\t" + NFTstore[i].name);
+    console.log("eyeColor: \t\t" + NFTstore[i].eyeColor);
+    console.log("height: \t\t" + NFTstore[i].height);
+    console.log("occupation: \t" + NFTstore[i].occupation);
+ }
+}
+
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() {
+console.log("\nLength of NFT Store = " + NFTstore.length);
+}
+
+// call your functions below this line
+mintNFT("Simran", "Blue", "Short", "Engineer");
+mintNFT("Arpit", "Brown", "Tall", "Flying Officer");
+mintNFT("Bhawna", "Hazel", "Average", "Artist");
+mintNFT("Priyanshu", "Grey", "Very Tall", "Chef");
+listNFTs();
+getTotalSupply();
